@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+.Button {
+  margin: auto;
+  width: 10%;
+  border: 1px solid black;
+  border-radius: 5px;
+
+  margin-top: 10px;
+  background-color: skyblue;
+}
+
+.Button:hover {
+  cursor: pointer;
+}
