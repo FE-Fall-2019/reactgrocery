@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Add from '../add/add';
 import Remove from '../remove/remove';
+import { Button } from 'react-bootstrap';
 
 export default class Grocery extends Component {
     constructor() {
@@ -12,12 +13,14 @@ export default class Grocery extends Component {
     }
 
     handleClick = () => {
-        this.setState({ count: this.state.count + 1 })
+        this.props.item.count = (this.props.item.count * 1) + 1
+        this.setState({ count: this.props.item.count });
     }
 
     handleRemove = () => {
-        if (this.state.count > 0) {
-            this.setState({ count: this.state.count - 1});
+        if (this.props.item.count > 0) {
+            this.props.item.count = this.props.item.count * 1 - 1;
+            this.setState({ count: this.props.item.count });
         }
     }
 
@@ -27,13 +30,16 @@ export default class Grocery extends Component {
 
     render() {
         return (
-            <div>
-                {this.props.item.item} : {this.state.count}
-                <Add handleClick={this.handleClick}></Add>
-                {this.state.count > 0 ?
-                <Remove handleRemove={this.handleRemove}></Remove>
-                : ""}
-                <div className="Button" onClick={this.removeItem}>Remove Item</div>
+            <div className="container">
+                {this.props.item.item} : {this.props.item.count}
+                <div>
+                    <Add handleClick={this.handleClick}></Add>
+                    {this.props.item.count > 0 ?
+                    <Remove handleRemove={this.handleRemove}></Remove>
+
+                    : ""}
+                </div>
+                <Button variant="danger" onClick={this.removeItem} style={{marginTop: 10}}>Remove Item</Button>
             </div>
         )
     }

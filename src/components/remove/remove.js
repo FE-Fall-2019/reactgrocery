@@ -1,8 +1,9 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 
 function Remove(props) {
     return (
-        <div className="Button" onClick={props.handleRemove}>-</div>
+        <Button variant="warning" onClick={props.handleRemove}>-</Button>
     )
 }
 

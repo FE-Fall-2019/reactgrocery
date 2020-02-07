@@ -1,8 +1,9 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 
 function Add(props) {
     return (
-        <div className="Button" onClick={props.handleClick}>+</div>
+        <Button variant="success" style={{marginRight: 10}} onClick={props.handleClick}>+</Button>
     )
 }
 
